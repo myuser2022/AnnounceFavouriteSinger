@@ -1,0 +1,147 @@
+Push event to branch main
+14:06:38 Connecting to https://api.github.com using awsrpa@outlook.com/****** (ag-cred)
+Obtained Jenkinsfile from 4f40619d7e7195d5e2ecdaf3fd93807d999d8791
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timeout
+Timeout set to expire in 1 hr 20 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Preparing)
+[Pipeline] echo
+Jenkins Home C:\ProgramData\Jenkins\.jenkins
+[Pipeline] echo
+Jenkins URL http://localhost:8080/
+[Pipeline] echo
+Jenkins JOB Number 5
+[Pipeline] echo
+Jenkins JOB Name testPipenext/main
+[Pipeline] echo
+GitHub BranchName main
+[Pipeline] checkout
+The recommended git tool is: NONE
+using credential ag-cred
+Cloning the remote Git repository
+Cloning with configured refspecs honoured and without tags
+Cloning repository https://github.com/myuser2022/AnnounceFavouriteSinger.git
+ > git.exe init C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main # timeout=10
+Fetching upstream changes from https://github.com/myuser2022/AnnounceFavouriteSinger.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.37.1.windows.1'
+using GIT_ASKPASS to set credentials ag-cred
+ > git.exe fetch --no-tags --force --progress -- https://github.com/myuser2022/AnnounceFavouriteSinger.git +refs/heads/main:refs/remotes/origin/main # timeout=10
+ > git.exe config remote.origin.url https://github.com/myuser2022/AnnounceFavouriteSinger.git # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/main:refs/remotes/origin/main # timeout=10
+Avoid second fetch
+Checking out Revision 4f40619d7e7195d5e2ecdaf3fd93807d999d8791 (main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 4f40619d7e7195d5e2ecdaf3fd93807d999d8791 # timeout=10
+Commit message: "test"
+ > git.exe rev-list --no-walk 7d037a9fabd509c2c9e3b272b72de72da97e99e2 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Tests)
+[Pipeline] echo
+Building package with C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main
+[Pipeline] UiPathPack
+Expected plugin jar path on Jenkins master: C:\ProgramData\Jenkins\.jenkins\plugins\uipath-automation-package\WEB-INF\lib\uipath-automation-package.jar, extracting...
+Extracting cli to temp folder C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp...done!
+[net461] $ C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp\cli-1.0.8136.25036\lib\net461\uipcli.exe run C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp\uipcliargs11147315909194463645
+Packing project(s) at path C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main\project.json...
+Detected schema version 4.0
+Compiling... done.
+Building... done.
+Signing... done.
+Packaged project AnnounceFavouriteSinger_Tests v1.1.5 saved to C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main\Output\Tests${env.BUILD_NUMBER}.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy Tests)
+[Pipeline] echo
+Deploying main to orchestrator
+[Pipeline] UiPathDeploy
+Expected plugin jar path on Jenkins master: C:\ProgramData\Jenkins\.jenkins\plugins\uipath-automation-package\WEB-INF\lib\uipath-automation-package.jar, extracting...
+Extracting cli to temp folder C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp...done!
+[net461] $ C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp\cli-1.0.8136.25036\lib\net461\uipcli.exe run C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp\uipcliargs5633673147946841252
+Deploying package AnnounceFavouriteSinger_Tests.1.1.5 to tenant DefaultTenant on https://cloud.uipath.com/...
+FeedId for FolderId 3524213: .
+Deploying project(s) C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main\Output\Tests${env.BUILD_NUMBER}\AnnounceFavouriteSinger_Tests.1.1.5.nupkg to https://cloud.uipath.com/ and tenant DefaultTenant to Package feed.
+Status: OK
+Key: C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main\Output\Tests${env.BUILD_NUMBER}\AnnounceFavouriteSinger_Tests.1.1.5.nupkg
+Body: {"Id":"AnnounceFavouriteSinger_Tests","Version":"1.1.5"}
+Process will be deployed in modern folder.
+Deployed AnnounceFavouriteSinger_Tests v1.1.5 to folder MY.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Perform Tests)
+[Pipeline] echo
+Testing the workflow...
+[Pipeline] UiPathTest
+Expected plugin jar path on Jenkins master: C:\ProgramData\Jenkins\.jenkins\plugins\uipath-automation-package\WEB-INF\lib\uipath-automation-package.jar, extracting...
+Extracting cli to temp folder C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp...done!
+[net461] $ C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp\cli-1.0.8136.25036\lib\net461\uipcli.exe run C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main@tmp\uipcliargs9569542540006297079
+Running tests in set AnnounceFavouriteSinger_Tests on https://cloud.uipath.com/ (tenant DefaultTenant) with a timeout of 10000 seconds...
+Starting test set run for AnnounceFavouriteSinger_Tests...
+Started test set AnnounceFavouriteSinger_Tests with execution id 553100.
+Running tests... 0 passed, 0 failed or canceled, 1 total. Waiting for 20s.
+Running tests... 0 passed, 0 failed or canceled, 1 total. Waiting for 20s.
+Running tests... 1 passed, 0 failed or canceled, 1 total. Waiting for 20s.
+Finished running test set AnnounceFavouriteSinger_Tests...
+Writing test results of type junit to C:\ProgramData\Jenkins\.jenkins\workspace\testPipenext_main\result.xml...
+Recording test results
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Process)
+Stage "Build Process" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy Process)
+Stage "Deploy Process" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] echo
+FAILED: Job 'testPipenext/main [5]' (http://localhost:8080/job/testPipenext/job/main/display/redirect)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+java.lang.AbstractMethodError: Receiver class com.uipath.uipathpackage.UiPathTest does not define or inherit an implementation of the resolved method abstract isSkipOldReports()Z of interface hudson.tasks.junit.JUnitTask.
+	at hudson.tasks.junit.JUnitResultArchiver.parse(JUnitResultArchiver.java:158)
+	at hudson.tasks.junit.JUnitResultArchiver.parseAndAttach(JUnitResultArchiver.java:190)
+	at com.uipath.uipathpackage.UiPathTest.publishTestResults(UiPathTest.java:355)
+	at com.uipath.uipathpackage.UiPathTest.perform(UiPathTest.java:213)
+	at jenkins.tasks.SimpleBuildStep.perform(SimpleBuildStep.java:123)
+	at org.jenkinsci.plugins.workflow.steps.CoreStep$Execution.run(CoreStep.java:101)
+	at org.jenkinsci.plugins.workflow.steps.CoreStep$Execution.run(CoreStep.java:71)
+	at org.jenkinsci.plugins.workflow.steps.SynchronousNonBlockingStepExecution.lambda$start$0(SynchronousNonBlockingStepExecution.java:47)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Could not update commit status, please check if your scan credentials belong to a member of the organization or a collaborator of the repository and repo:status scope is selected
+
+
+GitHub has been notified of this commit’s build result
+
+Finished: FAILUR
